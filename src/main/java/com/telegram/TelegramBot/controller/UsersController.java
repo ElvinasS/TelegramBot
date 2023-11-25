@@ -34,7 +34,7 @@ public class UsersController extends TelegramLongPollingBot {
         Users userID = new Users();
         userID.setUserId("5297346890");
 
-        log.warn(foundnot(userID));
+        //log.warn(foundnot(userID));
         List<Users> usersList = usersService.findAllUsers();
 
         if (usersList.isEmpty()) {
@@ -57,16 +57,14 @@ public class UsersController extends TelegramLongPollingBot {
 
 
 
-    @GetMapping
     @Override
     public void onUpdateReceived(Update update) {
         if (update.hasMessage() && update.getMessage().hasText()) {
             String messageText = update.getMessage().getText();
             Long chatId = update.getMessage().getChatId();
             // Process the message and generate a response
-            Users userID = new Users();
-            userID.setUserId(update.getMessage().getFrom().getId().toString());
-            System.out.println(update.toString());
+
+            System.out.println(update.toString() + foundnot(update));
             // Send the response back to the user
 
             if(1==1) {
@@ -83,7 +81,9 @@ public class UsersController extends TelegramLongPollingBot {
         }
     }
 
-    private String foundnot(Users userID) {
+    private String foundnot(Update update) {
+        Users userID = new Users();
+        userID.setUserId(update.getMessage().getFrom().getId().toString());
         if(usersService.findUserMatch(userID) == true){
             return "message too st";
         }
