@@ -39,6 +39,18 @@ public class UsersServiceImpl implements UsersService {
         }
     }
 
+    @Override
+    public String findUserMatchString(String userId) {
+        Users userID = new Users();
+        userID.setUserId(userId);
+        if (!hasMatch(userID)){
+            return "false";
+        }
+        else {
+            return "true";
+        }
+    }
+
     public boolean hasMatch(Users users){
         return usersRepository.findAll().stream().anyMatch(usersDAO -> isSame(users, usersDAO));
     }

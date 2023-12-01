@@ -8,4 +8,6 @@ public interface UsersService {
     List<Users> findAllUsers();
 
     boolean findUserMatch(Users userId);
+
+    public String findUserMatchString(String userId);
 }

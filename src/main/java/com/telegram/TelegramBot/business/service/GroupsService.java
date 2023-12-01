@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface GroupsService {
     List<Groups> findAllGroups();
+
+    Groups saveGroups(Groups groups) throws Exception;
 }

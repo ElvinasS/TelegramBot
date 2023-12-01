@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "groups")
+@Table(name = "groups",  schema = "public")
 public class GroupsDAO {
 
     @Id
@@ -15,6 +15,6 @@ public class GroupsDAO {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "groupId")
+    @Column(name = "group_id")
     private String groupId;
 }

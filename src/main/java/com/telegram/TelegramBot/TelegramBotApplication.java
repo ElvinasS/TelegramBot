@@ -1,7 +1,6 @@
 package com.telegram.TelegramBot;
 
-//import com.telegram.TelegramBot.business.service.impl.MyBot;
-import com.telegram.TelegramBot.controller.UsersController;
+import com.telegram.TelegramBot.business.service.impl.MyBot;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,7 +17,7 @@ public class TelegramBotApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(TelegramBotApplication.class, args);
 
-		UsersController myBot = new UsersController();
+		MyBot myBot = new MyBot();
 		try {
 			TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
 			botsApi.registerBot(myBot);
