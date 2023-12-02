@@ -49,6 +49,6 @@ public class GroupsController {
         }
         Groups groupSaved = groupsService.saveGroups(groups);
         log.debug("New group id is saved: {}", groups);
-        return ResponseEntity.ok(groupSaved);
+        return new ResponseEntity<>(groupSaved, HttpStatus.CREATED);
     }
 }

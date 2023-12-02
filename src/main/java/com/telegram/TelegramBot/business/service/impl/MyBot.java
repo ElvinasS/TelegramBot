@@ -133,9 +133,10 @@ public class MyBot extends TelegramLongPollingBot{
         RestTemplate restTemplate = new RestTemplate();
         Groups newGroupId = new Groups();
         newGroupId.setGroupId(groupId);
+        newGroupId.setId(null);
         restTemplate.postForObject(
                 "http://localhost:8080/api/v1/groups",
                 newGroupId,
-                ResponseEntity.class);
+                Groups.class);
     }
 }
